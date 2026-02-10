@@ -1,0 +1,175 @@
+<!DOCTYPE html><html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Valentine princesskuu 💖</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Poppins', system-ui, sans-serif;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      transition: background 1.2s ease, filter .8s ease;
+      background-size: cover;
+      background-position: center;
+    }
+    .slide {
+      display: none;
+      background: white;
+      padding: 32px 26px;
+      border-radius: 24px;
+      width: 90%;
+      max-width: 420px;
+      text-align: center;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+      animation: fadeIn .6s ease;
+      z-index: 2;
+    }
+    .slide.active { display: block; }
+    h1 { font-size: 1.5rem; margin-bottom: 14px; color: #ff4d6d; }
+    p { color: #555; line-height: 1.6; font-size: .95rem; }
+    .btn {
+      margin-top: 28px; background: #ff4d6d; color: #fff; border: none;
+      padding: 12px 26px; border-radius: 999px; font-size: 1rem; cursor: pointer;
+    }
+    .buttons { margin-top: 28px; display: flex; justify-content: center; gap: 16px; position: relative; }
+    .no { background: #e0e0e0; color: #333; position: absolute; }@keyframes fadeIn { from {opacity:0; transform:translateY(12px)} to {opacity:1; transform:none} }
+
+/* Floating petals */
+.floating { position: fixed; top: -10px; font-size: 18px; animation: fall linear forwards; pointer-events: none; opacity:.85; z-index:1; }
+@keyframes fall { to { transform: translateY(110vh) rotate(360deg); opacity: 0; } }
+
+/* Effects */
+.flash { animation: flash .4s ease; }
+@keyframes flash { 0%{background-color:transparent}50%{background-color:rgba(255,255,255,.6)}100%{background-color:transparent} }
+.shake { animation: shake .4s; }
+@keyframes shake { 0%{transform:none}25%{transform:translateX(-6px)}50%{transform:translateX(6px)}75%{transform:translateX(-6px)}100%{transform:none} }
+
+.confetti { position: fixed; top: -10px; width: 8px; height: 14px; opacity:.9; animation: confettiFall linear forwards; pointer-events:none; }
+@keyframes confettiFall { to { transform: translateY(110vh) rotate(720deg); opacity:0 } }
+
+.fire { position: fixed; left: 50%; top: 55%; width: 6px; height: 6px; border-radius: 50%; animation: fire 1.2s ease-out forwards; pointer-events:none; }
+@keyframes fire { to { transform: translate(var(--x), var(--y)) scale(.2); opacity:0 } }
+
+.overload { animation: overloadFlash .8s infinite alternate; }
+@keyframes overloadFlash { from { filter: brightness(1);} to { filter: brightness(1.25);} }
+
+/* Cinematic */
+.letterbox::before, .letterbox::after {
+  content:''; position:fixed; left:0; right:0; height:10vh; background:#000; z-index:999; animation: letterboxIn .8s ease forwards;
+}
+.letterbox::before { top:-10vh; } .letterbox::after { bottom:-10vh; }
+@keyframes letterboxIn { to { top:0; bottom:0 } }
+.night { background: radial-gradient(circle at top, #1b2a4e, #050814 70%); }
+
+.final-name {
+  margin-top: 18px; font-size: 1.15rem; letter-spacing: .14em; color:#fff; opacity:0;
+  animation: glowFade 2.2s ease forwards;
+  text-shadow: 0 0 12px rgba(255,255,255,.6), 0 0 28px rgba(255,77,109,.45);
+}
+@keyframes glowFade { from {opacity:0; filter:blur(6px)} to {opacity:1; filter:none} }
+
+  </style>
+</head>
+<body><audio id="music" autoplay loop>
+  <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_9c2d7b64d7.mp3?filename=romantic-piano-112199.mp3" type="audio/mpeg">
+</audio><div class="slide active">
+  <h1>Mau jadi Valentine-ku? 💌</h1>
+  <p>Pilih yang jujur yaa 😌</p>
+  <div class="buttons">
+    <button class="btn" onclick="next()">MAU BANGET 💖</button>
+    <button class="btn no" id="noBtn">Engga Banget</button>
+  </div>
+</div><div class="slide"><h1>YEAY 🥰</h1><p>Aku tau dari awal kamu pasti milih ini, soalnya hati kamu emang selembut itu 🤍</p><button class="btn" onclick="next()">lanjut</button></div>
+<div class="slide"><h1>Lucu dikit 😆</h1><p>Kalau kamu tadi kepikiran nolak… berarti kamu lucu, tapi boong 😜</p><button class="btn" onclick="next()">lanjut</button></div>
+<div class="slide"><h1>Ngeselin 😝</h1><p>Aku sengaja bikin panjang, biar kamu tau aku niat banget sama kamu 😻</p><button class="btn" onclick="next()">lanjut</button></div>
+<div class="slide"><h1>Bawel 🙈</h1><p>Aku emang bawel ke kamu, soalnya aku peduli dan pengen kamu selalu baik‑baik aja 🥰</p><button class="btn" onclick="next()">lanjut</button></div>
+<div class="slide"><h1>Romantis 💕</h1><p>Di antara semua hal yang bikin aku seneng, kamu selalu jadi alasan paling utama 😻</p><button class="btn" onclick="next()">lanjut</button></div>
+<div class="slide"><h1>Dramatis 🎭</h1><p>Mungkin kedengeran lebay, tapi sejak kamu ada, hidupku terasa lebih berwarna 💓</p><button class="btn" onclick="next()">lanjut</button></div>
+<div class="slide"><h1>Nasihat 🤍</h1><p>Tolong jaga diri kamu ya… karena kamu berharga, bukan cuma buat kamu, tapi juga buat aku 🥰</p><button class="btn" onclick="next()">lanjut</button></div>
+<div class="slide"><h1>Tulus 🌷</h1><p>Aku sayang kamu bukan karena kebiasaan, tapi karena setiap hari aku milih kamu lagi dan lagi 😻</p><button class="btn" onclick="next()">lanjut</button></div>
+<div class="slide"><h1>Aesthetic ✨</h1><p>Kamu tuh kayak senja, datangnya pelan tapi selalu bikin hatiku tenang 🥰</p><button class="btn" onclick="next()">lanjut</button></div>
+<div class="slide"><h1>Hampir selesai 💞</h1><p>Makasih ya… karena kamu mau baca dan mau ada 🥰</p><button class="btn" onclick="next()">lanjut</button></div><div class="slide" id="lastSlide">
+  <h1 id="finalTitle"></h1>
+  <p id="finalText"></p>
+</div><script>
+  const slides = document.querySelectorAll('.slide');
+  const body = document.body;
+  const music = document.getElementById('music');
+  const finalTitle = document.getElementById('finalTitle');
+  const finalText = document.getElementById('finalText');
+
+  const finalTitleText = 'Happy Valentine';
+  const finalBodyText = 'Terima kasih sudah hadir, bertahan, dan membuat hatiku merasa pulang.';
+  const finalClosing = 'Dan kalau boleh jujur… aku mau milih kamu, hari ini dan seterusnya.';
+  const finalName = 'Candice Keirran Young';
+
+  let index = 0;
+
+  function next() {
+    slides[index].classList.remove('active');
+    index++;
+    if (index >= slides.length) index = slides.length - 1;
+    slides[index].classList.add('active');
+
+    randomBg();
+    petals();
+    confettiRain();
+
+    if (index === slides.length - 1) cinematicFinish();
+  }
+
+  function randomBg() {
+    const romantic = [
+      'linear-gradient(180deg, rgba(255,183,197,.9), rgba(255,94,125,.85)), radial-gradient(circle at top, #ffd1dc, #ff8fab)',
+      'linear-gradient(180deg, rgba(255,240,214,.95), rgba(255,204,153,.9)), radial-gradient(circle at top, #fff1c1, #ffcc99)',
+      'linear-gradient(180deg, rgba(210,232,255,.95), rgba(120,168,255,.9)), radial-gradient(circle at top, #cfe0ff, #7aa2ff)',
+      'linear-gradient(180deg, rgba(240,220,255,.95), rgba(180,120,255,.9)), radial-gradient(circle at top, #eadcff, #b58bff)'
+    ];
+    body.style.backgroundImage = romantic[Math.floor(Math.random()*romantic.length)];
+    body.style.filter = 'blur(.6px)';
+    setTimeout(()=> body.style.filter='blur(0)', 500);
+  }
+
+  function petals() {
+    for (let i=0;i<5;i++){
+      const p=document.createElement('div'); p.className='floating'; p.innerText='🌸';
+      p.style.left=Math.random()*100+'vw'; p.style.animationDuration=4+Math.random()*2+'s';
+      document.body.appendChild(p); setTimeout(()=>p.remove(),6000);
+    }
+  }
+
+  function confettiRain(){
+    for(let i=0;i<8;i++){
+      const c=document.createElement('div'); c.className='confetti'; c.style.left=Math.random()*100+'vw';
+      c.style.background=['#ff4d6d','#ffd166','#cdb4db','#bde0fe'][Math.floor(Math.random()*4)];
+      c.style.animationDuration=3+Math.random()*2+'s'; document.body.appendChild(c);
+      setTimeout(()=>c.remove(),5000);
+    }
+  }
+
+  function cinematicFinish(){
+    body.classList.add('letterbox','night'); music.volume=.15;
+    typeWriter(finalTitle, finalTitleText, 60, ()=>{
+      typeWriter(finalText, finalBodyText, 32, ()=>{
+        const nameEl=document.createElement('div'); nameEl.className='final-name'; nameEl.innerText=finalName;
+        finalText.parentElement.appendChild(nameEl);
+        const close=document.createElement('div'); close.style.marginTop='14px'; close.style.fontSize='.85rem'; close.style.opacity='.85'; close.style.color='#eaeaea'; close.innerText=finalClosing;
+        finalText.parentElement.appendChild(close);
+        setTimeout(()=>{ overload(); firework(); },700);
+      });
+    });
+  }
+
+  function typeWriter(el,text,speed,cb){ el.innerHTML=''; let i=0; const t=setInterval(()=>{ el.innerHTML+=text.charAt(i++); if(i>=text.length){clearInterval(t); cb&&cb();}},speed); }
+  function overload(){ body.classList.add('overload','flash','shake'); setTimeout(()=>body.classList.remove('flash','shake'),500); }
+  function firework(){ for(let i=0;i<28;i++){ const f=document.createElement('div'); f.className='fire'; f.style.background=['#ff4d6d','#ffd166','#fff'][Math.floor(Math.random()*3)]; f.style.setProperty('--x',(Math.random()*200-100)+'px'); f.style.setProperty('--y',(Math.random()*200-100)+'px'); document.body.appendChild(f); setTimeout(()=>f.remove(),1500);} }
+
+  const noBtn=document.getElementById('noBtn'); if(noBtn){ noBtn.addEventListener('mouseover',()=>{ noBtn.style.left=Math.random()*200-100+'px'; noBtn.style.top=Math.random()*100-50+'px';}); }
+</script>
+</body>
+</html>
